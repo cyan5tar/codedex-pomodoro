@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Timer</title>
+    <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-900 flex flex-col items-center min-h-screen py-12">
+
+    <h1 class="text-3xl font-bold">Focus Timer</h1>
+    <p class="text-gray-600 mb-8">Stay productive with the Pomodoro Technique</p>
+
+    <!-- Card -->
+    <div class="bg-white shadow rounded-2xl p-8 w-full max-w-md text-center">
+
+        <!-- Tabs -->
+        <div class="flex justify-center mb-8 space-x-1">
+            <button id="focusTab" class="tab-btn rounded-l-lg">Focus</button>
+            <button id="shortBreakTab" class="tab-btn">Short Break</button>
+            <button id="longBreakTab" class="tab-btn rounded-r-lg">Long Break</button>
+        </div>
+
+        <div class="relative w-64 h-64 mx-auto mb-8">
+            <svg class="w-full h-full transform -rotate-90">
+                <circle cx="128" cy="128" r="120" stroke="#e5e7eb" stroke-width="12" fill="none" />
+                <circle id="progress" cx="128" cy="128" r="120" stroke="#ef4444" stroke-width="12" fill="none"
+                    stroke-linecap="butt" stroke-dasharray="754" stroke-dashoffset="754"
+                    class="transition-all duration-1000 ease-linear" />
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <div id="timer" class="text-5xl font-bold">25:00</div>
+                <div id="label" class="text-gray-500">Focus</div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex justify-center gap-4 mb-6">
+            <button id="startPauseBtn"
+                class="flex items-center gap-2 px-6 py-3 rounded-lg bg-black text-white font-medium transition-colors duration-200 hover:bg-gray-800">
+                <span id="startPauseText">Start</span>
+            </button>
+            <button id="resetBtn"
+                class="px-6 py-3 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors duration-200">⟳</button>
+        </div>
+
+        <hr class="my-6" />
+
+        <!-- Completed -->
+        <div class="text-left text-gray-600">Completed today <span id="completed" class="font-bold text-black">0</span>
+        </div>
+    </div>
+
+    <!-- Footer Info -->
+    <p class="text-gray-500 text-center mt-6 max-w-md">
+        Work for 25 minutes, then take a 5-minute break. After 4 sessions, take a longer 15-minute break.
+    </p>
+
+</body>
+
+</html>
